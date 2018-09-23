@@ -14,15 +14,15 @@ public class Post {
     private String description;
 
     @Lob
-    private String context;
+    private String content;
 
     public Post() {
     }
 
-    public Post(String title, String description, String context) {
+    public Post(String title, String description, String content) {
         this.title = title;
         this.description = description;
-        this.context = context;
+        this.content = content;
     }
 
     public Long getId() {
@@ -49,11 +49,11 @@ public class Post {
         this.description = description;
     }
 
-    public String getContext() {
-        return context;
+    public String getContent() {
+        return content;
     }
 
-    public void setContext(String context) {
-        this.context = context;
+    public void setContent(String context) {
+        this.content = content;
     }
 }
