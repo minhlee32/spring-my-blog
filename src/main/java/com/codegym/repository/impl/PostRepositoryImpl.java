@@ -1,6 +1,7 @@
-package com.codegym.repository;
+package com.codegym.repository.impl;
 
 import com.codegym.model.Post;
+import com.codegym.repository.PostRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
