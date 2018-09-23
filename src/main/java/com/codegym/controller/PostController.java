@@ -43,7 +43,7 @@ public class PostController {
         return modelAndView;
     }
 
-    @GetMapping("/edit{id}")
+    @GetMapping("/edit/{id}")
     public ModelAndView showEditForm(@PathVariable("id") Long id) {
         Post post = postService.findById(id);
         if (post != null) {
@@ -65,7 +65,7 @@ public class PostController {
         return modelAndView;
     }
 
-    @GetMapping("/delete{id}")
+    @GetMapping("/delete/{id}")
     public ModelAndView showDeleteForm(@PathVariable("id") Long id) {
         Post post = postService.findById(id);
         if (post != null) {
