@@ -1,5 +1,9 @@
 package com.codegym.configuration;
 
+import com.codegym.repository.PostRepository;
+import com.codegym.repository.impl.PostRepositoryImpl;
+import com.codegym.service.PostService;
+import com.codegym.service.impl.PostServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -39,6 +43,16 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
+    }
+
+    @Bean
+    public PostRepository postRepository() {
+        return new PostRepositoryImpl();
+    }
+
+    @Bean
+    public PostService postService() {
+        return new PostServiceImpl();
     }
 
     @Bean
