@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-
 @Controller
 public class PostController {
 
@@ -37,7 +35,7 @@ public class PostController {
 
     @GetMapping("/posts")
     public ModelAndView allPosts() {
-        List<Post> posts = postService.findAll();
+        Iterable<Post> posts = postService.findAll();
         ModelAndView modelAndView = new ModelAndView("/post/list");
         modelAndView.addObject("posts", posts);
         return modelAndView;
