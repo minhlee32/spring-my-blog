@@ -1,5 +1,6 @@
 package com.codegym.configuration;
 
+import com.codegym.formatter.CategoryFormatter;
 import com.codegym.service.CategoryService;
 import com.codegym.service.PostService;
 import com.codegym.service.impl.CategoryServiceImpl;
@@ -12,6 +13,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.format.Formatter;
+import org.springframework.format.FormatterRegistrar;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -54,6 +58,11 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     @Bean
     public CategoryService categoryService() {
         return new CategoryServiceImpl();
+    }
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addFormatter(new CategoryFormatter(applicationContext.getBean(CategoryService.class)));
     }
 
 
