@@ -5,7 +5,7 @@ import com.codegym.model.Post;
 
 public interface CategoryService {
 
-    Iterable<Post> findAll();
+    Iterable<Category> findAll();
 
     Post findById(Long id);
 
