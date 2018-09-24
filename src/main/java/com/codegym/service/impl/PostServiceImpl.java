@@ -13,13 +13,13 @@ public class PostServiceImpl implements PostService {
     private PostRepository postRepository;
 
     @Override
-    public List<Post> findAll() {
+    public Iterable<Post> findAll() {
         return postRepository.findAll();
     }
 
     @Override
     public Post findById(Long id) {
-        return postRepository.findById(id);
+        return postRepository.findOne(id);
     }
 
     @Override
@@ -29,6 +29,6 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void remove(Long id) {
-        postRepository.remove(id);
+        postRepository.delete(id);
     }
 }
