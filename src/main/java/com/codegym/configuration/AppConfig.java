@@ -1,6 +1,8 @@
 package com.codegym.configuration;
 
+import com.codegym.service.CategoryService;
 import com.codegym.service.PostService;
+import com.codegym.service.impl.CategoryServiceImpl;
 import com.codegym.service.impl.PostServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -47,6 +49,11 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     @Bean
     public PostService postService(){
         return new PostServiceImpl();
+    }
+
+    @Bean
+    public CategoryService categoryService() {
+        return new CategoryServiceImpl();
     }
 
 
