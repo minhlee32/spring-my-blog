@@ -1,8 +1,9 @@
 package com.codegym.service;
 
+import com.codegym.model.Category;
 import com.codegym.model.Post;
 
-public interface Category {
+public interface CategoryService {
 
     Iterable<Post> findAll();
 
