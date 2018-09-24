@@ -1,7 +1,5 @@
 package com.codegym.configuration;
 
-import com.codegym.repository.PostRepository;
-import com.codegym.repository.impl.PostRepositoryImpl;
 import com.codegym.service.PostService;
 import com.codegym.service.impl.PostServiceImpl;
 import org.springframework.beans.BeansException;
@@ -11,6 +9,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -35,6 +34,7 @@ import java.util.Properties;
 @EnableWebMvc
 @EnableTransactionManagement
 @ComponentScan("com.codegym")
+@EnableJpaRepositories("com.codegym.repository")
 public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
@@ -42,11 +42,6 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
-    }
-
-    @Bean
-    public PostRepository postRepository(){
-        return new PostRepositoryImpl();
     }
 
     @Bean
