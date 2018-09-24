@@ -33,7 +33,7 @@ public class CategoryController {
         return modelAndView;
     }
 
-    @GetMapping("/edit-province/{id}")
+    @GetMapping("/edit-category/{id}")
     public ModelAndView showEditForm(@PathVariable Long id){
         Category category = categoryService.findById(id);
         if(category!= null) {
@@ -47,7 +47,7 @@ public class CategoryController {
         }
     }
 
-    @PostMapping("/edit-province")
+    @PostMapping("/edit-category")
     public ModelAndView updateProvince(@ModelAttribute("province") Category category){
         categoryService.save(category);
         ModelAndView modelAndView = new ModelAndView("/category/edit");
@@ -56,7 +56,7 @@ public class CategoryController {
         return modelAndView;
     }
 
-    @GetMapping("/delete-province/{id}")
+    @GetMapping("/delete-category/{id}")
     public ModelAndView showDeleteForm(@PathVariable Long id){
         Category category = categoryService.findById(id);
         if(category!= null) {
@@ -70,7 +70,7 @@ public class CategoryController {
         }
     }
 
-    @PostMapping("/delete-province")
+    @PostMapping("/delete-category")
     public String deleteProvince(@ModelAttribute("province") Category category){
         categoryService.remove(category.getId());
         return "redirect:categories";
