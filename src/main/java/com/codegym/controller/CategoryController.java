@@ -42,8 +42,7 @@ public class CategoryController {
             return modelAndView;
 
         }else {
-            ModelAndView modelAndView = new ModelAndView("/error-404");
-            return modelAndView;
+            return new ModelAndView("/error-404");
         }
     }
 
