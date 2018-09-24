@@ -59,7 +59,7 @@ public class Post {
         return content;
     }
 
-    public void setContent(String context) {
+    public void setContent(String content) {
         this.content = content;
     }
 }
